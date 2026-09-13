@@ -33,3 +33,4 @@ files_to_update/submissions.pkl
 
 # DS_Store
 *.DS_Store
+.streamlit/secrets.toml
