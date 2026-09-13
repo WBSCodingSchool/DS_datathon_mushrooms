@@ -222,7 +222,10 @@ def show_leaderboard() -> None:
                         "Participant"
                     ].transform("count"),
                 )
-                .sort_values("Scoring metric", ascending=False)
+                .sort_values(
+                    ["Scoring metric", "Recall", "Accuracy"],
+                    ascending=[False, False, False],
+                )
                 .drop_duplicates(["Participant"], keep="first")
                 .assign(
                     position=lambda d: d["Scoring metric"]
