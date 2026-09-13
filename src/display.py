@@ -85,30 +85,42 @@ def get_participant_info() -> bool:
         "If you haven't done so yet, please download the test data, train data, and an example upload file below.",
     )
 
-    cols = st.columns(3)
+    cols = st.columns(4)
 
-    with cols[0], open("data/test.csv", "rb") as f:
+    with cols[0], open("data/train.csv", "rb") as f:
         st.download_button(
-            label="Download test data",
-            data=f,
-            file_name="test.csv",
-            mime="text/csv",
-        )
-
-    with cols[1], open("data/train.csv", "rb") as f:
-        st.download_button(
-            label="Download train data",
+            label="Download  \n train data",
             data=f,
             file_name="train.csv",
             mime="text/csv",
+            use_container_width=True,
         )
 
-    with cols[2], open("data/sample_submission.csv", "rb") as f:
+    with cols[1], open("data/test.csv", "rb") as f:
         st.download_button(
-            label="Download example upload",
+            label="Download  \n test data",
+            data=f,
+            file_name="test.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+
+    with cols[2], open("data/data-description.txt", "rb") as f:
+        st.download_button(
+            label="Download  \n data description",
+            data=f,
+            file_name="data_description.txt",
+            mime="text/plain",
+            use_container_width=True,
+        )
+
+    with cols[3], open("data/sample_submission.csv", "rb") as f:
+        st.download_button(
+            label="Download  \n example upload",
             data=f,
             file_name="example_upload.csv",
             mime="text/csv",
+            use_container_width=True,
         )
 
     st.divider()
